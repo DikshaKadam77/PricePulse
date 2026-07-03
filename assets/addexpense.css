@@ -241,6 +241,15 @@ body {
     transition: all 0.3s ease;
 }
 
+.input-group input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .input-group input::placeholder,
 .input-group textarea::placeholder {
     color: #BAC7FF;
@@ -395,9 +404,13 @@ body {
     
     /* Date Input Fix for Mobile */
     input[type="date"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         min-height: 50px;
         cursor: pointer;
         width: 100%;
         box-sizing: border-box;
+        display: block;
     }
 }
