@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #F4F7FB;
+    color: #1E1E2F;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Dashboard Container Layout --- */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0ed2da 0%, #00b4db 100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 0 25px rgba(95, 41, 199, .15);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.menu {
+    list-style: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 18px;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.menu li a i {
+    font-size: 18px;
+}
+
+.menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.menu li.active a {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Profile Card & Logout --- */
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.profile-card > div:last-child {
+    flex-grow: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.profile-card h4 {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-card p {
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #0ed2da;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.logout-btn {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: .3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.logout-btn:hover {
+    background: #0ed2da;
+    color: white;
+}
+
+/* --- Main Content Workspace --- */
+.main-content {
+    margin-left: 260px;
+    padding: 40px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Top Header & Layout Actions --- */
+.page-header h1 {
+    font-size: 32px;
+    color: #12B1D1;
+    font-weight: 700;
+}
+
+.page-header p {
+    color: #8A8FA3;
+    margin-top: 4px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #12B1D1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    align-self: flex-start;
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: translateX(-3px);
+}
+
+/* --- Form Container Card --- */
+.expense-card {
+    background: white;
+    border-radius: 22px;
+    padding: 35px;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(95, 41, 199, .06);
+}
+
+#expenseForm {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* --- Inputs & Selection Controls --- */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #3C4A6B;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    background: #F8FAFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #1E1E2F;
+    transition: all 0.3s ease;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #BAC7FF;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #5f29c7;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(95, 41, 199, 0.1);
+}
+
+/* Specific styling for fields */
+.input-group textarea {
+    resize: none;
+}
+
+.input-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233C4A6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+/* --- Action Submit Button --- */
+.save-btn {
+    background: linear-gradient(45deg, #1089d3 0%, #12B1D1 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: .3s;
+    margin-top: 10px;
+    box-shadow: 0 8px 25px rgba(18, 177, 209, .25);
+}
+
+.save-btn:hover {
+    background: linear-gradient(45deg, #12B1D1 0%, #1089d3 100%);
+    box-shadow: 0 8px 25px rgba(18, 177, 209, .35);
+    transform: translateY(-2px);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+}

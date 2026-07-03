@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - PricePulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="transactions.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2 class="logo">PricePulse</h2>
+
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li> 
+                    <a href="addexpense.html">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Expense
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="transactions.html">
+                        <i class="fa-solid fa-receipt"></i>
+                        Transactions
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-bottom">
+                <div class="profile-card">
+                    <div class="avatar" id="avatar">D</div>
+                    <div>
+                        <h4 id="profileName">Loading...</h4>
+                        <p id="profileEmail">loading@email.com</p>
+                    </div>
+                </div>
+
+                <button type="button" id="logoutBtn" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+            <h1>Transactions</h1>
+            <p>View and manage all your expenses.</p>
+        </div>
+        <a href="dashboard.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Home
+        </a>
+            <!-- Filters Section -->
+            <section class="filters-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchBar" placeholder="Search by title...">
+                </div>
+                <div class="select-box">
+                    <select id="categorySelect">
+                        <option value="">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Income">Income / Salary</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Transactions list -->
+            <section class="transactions-section">
+                <div id="transactionsList">
+                    <div class="loading-state">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <p>Loading transactions...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="transactions.js"></script>
+</body>
+</html>

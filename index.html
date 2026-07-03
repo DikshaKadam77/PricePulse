@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PricePulse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="loaderPage">
+<div class="loader-container">
+    <div class="loader">
+    <span class="loader-text">loading</span>
+      <span class="load"></span>
+  </div>
+</div>
+</div>
+<div class="auth-page" id="authPage">
+<div class="container-auth" id="signinForm">
+    <div class="heading">
+      Welcome Back
+    </div>
+    <p class="sub-heading">
+      Sign in to <strong>PricePulse</strong> and take control of your finances.
+    </p>
+    <form action="" class="form">
+      <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail">
+      <input required="" class="input" type="password" name="password" id="password" placeholder="Password">
+      <span class="forgot-password"><a href="#" id="forgotPasswordBtn">Forgot Password ?</a></span>
+      <button id="signinBtn" class="login-button">
+        Sign In
+      </button>
+    </form>
+
+      <p class="switch-form">
+  Don't have an account?
+  <a href="#" id="showSignup">Sign Up</a>
+</p>
+  </div>
+<div class="container-auth" id="signupForm" style="display:none;">
+
+    <div class="heading">Welcome to PricePulse</div>
+
+    <p class="sub-heading">
+      Create your account and start tracking your expenses smarter.
+    </p>
+
+    <form class="form">
+
+        <input
+            class="input"
+            type="text"
+            id="firstName"
+            placeholder="First Name"
+            required
+        >
+
+        <input
+            class="input"
+            type="text"
+            id="lastName"
+            placeholder="Last Name"
+            required
+        >
+
+        <input
+            class="input"
+            type="email"
+            id="signupEmail"
+            placeholder="Email"
+            required
+        >
+
+        <input
+            class="input"
+            type="password"
+            id="signupPassword"
+            placeholder="Password"
+            required
+        >
+
+        <input
+            class="input"
+            type="number"
+            id="monthlyBudget"
+            placeholder="Monthly Budget"
+            required
+        >
+
+        <button id="signupBtn" class="login-button">
+            Create Account
+        </button>
+
+    </form>
+
+
+
+    <p class="switch-form">
+        Already have an account?
+        <a href="#" id="showSignin">Sign In</a>
+    </p>
+
+</div>
+</div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
