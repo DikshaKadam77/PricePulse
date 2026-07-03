@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - PricePulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/analytics.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <i class="fa-solid fa-circle-notch fa-spin loading-spinner"></i>
+        <div class="loading-text">Loading financial analytics...</div>
+    </div>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2 class="logo">PricePulse</h2>
+
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li> 
+                    <a href="addexpense.html">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Expense
+                    </a>
+                </li>
+                <li>
+                    <a href="transactions.html">
+                        <i class="fa-solid fa-receipt"></i>
+                        Transactions
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="analytics.html">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Analytics
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-bottom">
+                <div class="profile-card">
+                    <div class="avatar" id="avatar">D</div>
+                    <div>
+                        <h4 id="profileName">Loading...</h4>
+                        <p id="profileEmail">loading@email.com</p>
+                    </div>
+                </div>
+
+                <button type="button" id="logoutBtn" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="analytics-header">
+                <div>
+                    <h1>Monthly Analytics</h1>
+                    <p>Gain deeper insights into your monthly budgets and spending habits.</p>
+                </div>
+                
+                <div class="selector-container">
+                    <div class="select-wrapper">
+                        <select id="monthSelect" aria-label="Select Month">
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="select-wrapper">
+                        <select id="yearSelect" aria-label="Select Year">
+                            <!-- Dynamically populated -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget Usage Card -->
+            <section class="usage-card">
+                <div class="usage-header">
+                    <h3>Monthly Budget Allocation Status</h3>
+                    <span class="usage-percentage" id="usagePercentage">0% Spent</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar progress-safe" id="usageProgressBar"></div>
+                </div>
+                <div class="usage-footer-text" id="usageFooterText">
+                    You have ₹0 remaining of your ₹0 monthly budget.
+                </div>
+            </section>
+
+            <!-- Metric Cards Section -->
+            <section class="cards">
+                <div class="card">
+                    <div class="card-icon balance-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <h3>Available Balance</h3>
+                    <h2 id="balance">₹0</h2>
+                </div>
+                <div class="card">
+                    <div class="card-icon income-icon">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h3>Total Budget / Income</h3>
+                    <h2 id="income">₹0</h2>
+                </div>
+                <div class="card">
+                    <div class="card-icon expense-icon">
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                    </div>
+                    <h3>Total Monthly Expense</h3>
+                    <h2 id="expense">₹0</h2>
+                </div>
+            </section>
+
+            <!-- Analytics Visual Grid -->
+            <section class="analytics-grid">
+                <div class="chart-card">
+                    <h3>Spending Breakdown by Category</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="categoryChart"></canvas>
+                        <p class="chart-empty" id="categoryEmpty" style="display: none;">No expense data for this month.</p>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>Daily Spending Progress</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="dailyChart"></canvas>
+                        <p class="chart-empty" id="dailyEmpty" style="display: none;">No expense history for this month.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Grid (History + Top Expenses) -->
+            <section class="analytics-grid">
+                <div class="chart-card">
+                    <h3>Month-over-Month Comparison</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="historyChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="top-expenses-card">
+                    <h3>Top Spenders This Month</h3>
+                    <div class="top-expense-list" id="topExpenseList">
+                        <!-- Dynamically populated -->
+                        <div class="chart-empty">No expenses recorded for this month.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="../js/analytics.js"></script>
+</body>
+</html>

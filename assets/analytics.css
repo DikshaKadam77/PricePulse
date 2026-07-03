@@ -1,0 +1,304 @@
+@import "dashboard.css";
+
+/* --- Header & Selector Section --- */
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.selector-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    height: 46px;
+    padding: 0 40px 0 16px;
+    border: 2px solid #EAEBFF;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #1E1E2F;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A8FA3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    box-shadow: 0 8px 20px rgba(18, 177, 209, .04);
+}
+
+.select-wrapper select:focus {
+    outline: none;
+    border-color: #12B1D1;
+    box-shadow: 0 0 0 4px rgba(18, 177, 209, 0.1);
+}
+
+/* --- Progress Bar Card --- */
+.usage-card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(79, 124, 255, .08);
+    margin-bottom: 40px;
+}
+
+.usage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.usage-header h3 {
+    font-size: 16px;
+    color: #8A8FA3;
+    font-weight: 500;
+}
+
+.usage-percentage {
+    font-size: 18px;
+    font-weight: 700;
+    color: #12B1D1;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background-color: #F4F7FB;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+/* Colors for progress */
+.progress-safe {
+    background: linear-gradient(90deg, #36C98D 0%, #4EEDB0 100%);
+}
+
+.progress-warning {
+    background: linear-gradient(90deg, #FF9F43 0%, #FFC085 100%);
+}
+
+.progress-danger {
+    background: linear-gradient(90deg, #FF6B6B 0%, #FF8E8E 100%);
+}
+
+.usage-footer-text {
+    font-size: 12px;
+    color: #8A8FA3;
+}
+
+/* --- Analytics Grid --- */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.analytics-grid-full {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.chart-card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(79, 124, 255, .08);
+    display: flex;
+    flex-direction: column;
+    min-height: 380px;
+}
+
+.chart-card h3 {
+    font-size: 18px;
+    color: #1E1E2F;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.chart-wrapper {
+    position: relative;
+    flex-grow: 1;
+    height: 260px;
+    width: 100%;
+}
+
+.chart-empty {
+    text-align: center;
+    color: #8A8FA3;
+    font-size: 14px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+/* --- Top Expenses List --- */
+.top-expenses-card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(79, 124, 255, .08);
+    height: 100%;
+}
+
+.top-expenses-card h3 {
+    font-size: 18px;
+    color: #1E1E2F;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.top-expense-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top-expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background-color: #F8FAFF;
+    transition: all 0.2s ease;
+}
+
+.top-expense-item:hover {
+    transform: translateX(4px);
+    background-color: #F1F4FF;
+}
+
+.expense-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.expense-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.expense-info h4 {
+    font-size: 13.5px;
+    color: #1E1E2F;
+    font-weight: 600;
+    margin-bottom: 1px;
+}
+
+.expense-info small {
+    font-size: 11px;
+    color: #8A8FA3;
+}
+
+.expense-right {
+    text-align: right;
+}
+
+.expense-right h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E1E2F;
+    margin-bottom: 1px;
+}
+
+.expense-right small {
+    font-size: 11px;
+    color: #8A8FA3;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(244, 247, 251, 0.85);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.loading-spinner {
+    font-size: 40px;
+    color: #12B1D1;
+}
+
+.loading-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1E1E2F;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .analytics-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .selector-container {
+        width: 100%;
+    }
+    
+    .select-wrapper {
+        flex-grow: 1;
+    }
+    
+    .select-wrapper select {
+        width: 100%;
+    }
+    
+    .analytics-grid {
+        gap: 20px;
+    }
+    
+    .chart-card {
+        min-height: 350px;
+        padding: 20px;
+    }
+    
+    .chart-wrapper {
+        height: 240px;
+    }
+}
