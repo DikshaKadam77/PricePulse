@@ -29,7 +29,7 @@ function showPageAfterLoader() {
   if (!loaderFinished || currentUser === undefined || isSigningUp) return;
 
   if (currentUser) {
-    window.location.href = "dashboard.html";
+    window.location.href = "pages/dashboard.html";
     return;
   }
 
@@ -107,7 +107,7 @@ signupBtn.addEventListener("click", async (e) => {
 
     alert("Account Created Successfully!");
 
-    window.location.href = "dashboard.html";
+    window.location.href = "pages/dashboard.html";
 
   }
   catch(error) {
@@ -140,7 +140,7 @@ signinBtn.addEventListener("click", async (e) => {
     );
     alert("Login Successful!");
 
-    window.location.href = "dashboard.html";
+    window.location.href = "pages/dashboard.html";
   } catch (error) {
     console.error(error);
     alert(error.message);

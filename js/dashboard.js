@@ -84,7 +84,7 @@ function getAuthFallbackProfile(user) {
 onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
         return;
     }
 
