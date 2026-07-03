@@ -195,3 +195,59 @@
         min-width: 0;
     }
 }
+
+@media (max-width: 480px) {
+    .transaction-row {
+        padding: 12px 8px;
+    }
+    
+    .transaction-icon-box {
+        margin-right: 8px !important;
+        width: 38px;
+        height: 38px;
+    }
+    
+    .transaction-icon-box i {
+        font-size: 14px;
+    }
+    
+    .transaction-info h4 {
+        font-size: 13px;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .transaction-info small {
+        font-size: 11px;
+    }
+    
+    .transaction-amount-box {
+        min-width: 70px;
+        text-align: right;
+    }
+    
+    .transaction-amount-box h4 {
+        font-size: 13px;
+    }
+    
+    .transaction-amount-box .transaction-date {
+        font-size: 10px;
+    }
+    
+    .delete-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+        padding: 4px;
+    }
+    
+    .transaction-right-controls {
+        gap: 8px;
+    }
+    
+    .transactions-section {
+        padding: 15px;
+    }
+}

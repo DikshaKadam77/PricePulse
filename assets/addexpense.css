@@ -315,7 +315,7 @@ body {
         align-items: center;
         z-index: 1000;
         box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-        background: linear-gradient(90deg, #5f29c7 0%, #3d1587 100%) !important;
+        background: linear-gradient(90deg, #0ed2da 0%, #00b4db 100%) !important;
     }
     
     .logo {
@@ -342,17 +342,17 @@ body {
         gap: 2px;
         padding: 8px 12px;
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255, 255, 255, 0.7);
         background: none !important;
         box-shadow: none !important;
     }
     
     .menu li.active a {
-        color: #0ed2da;
+        color: #ffffff;
     }
     
     .menu li.active a i {
-        color: #0ed2da;
+        color: #ffffff;
     }
     
     .sidebar-bottom {
@@ -373,14 +373,14 @@ body {
         font-size: 10px;
         flex-direction: column;
         gap: 2px;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255, 255, 255, 0.7);
         border: none;
         width: auto;
     }
     
     .logout-btn:hover {
         background: none;
-        color: #0ed2da;
+        color: #ffffff;
     }
     
     .main-content {
@@ -391,5 +391,25 @@ body {
     
     .expense-card {
         padding: 20px;
+    }
+    
+    /* Date Input Fix for Mobile */
+    input[type="date"] {
+        position: relative;
+        min-height: 50px;
+        cursor: pointer;
+    }
+    
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        background: transparent;
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        height: auto;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
     }
 }
