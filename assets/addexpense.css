@@ -395,21 +395,9 @@ body {
     
     /* Date Input Fix for Mobile */
     input[type="date"] {
-        position: relative;
         min-height: 50px;
         cursor: pointer;
-    }
-    
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        background: transparent;
-        bottom: 0;
-        color: transparent;
-        cursor: pointer;
-        height: auto;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: auto;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
