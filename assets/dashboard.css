@@ -563,3 +563,129 @@ body {
     padding: 40px 0;
 }
 
+/* --- Mobile Responsive Layouts --- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 65px;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        padding: 0 10px;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(90deg, #5f29c7 0%, #3d1587 100%) !important;
+    }
+    
+    .logo {
+        display: none;
+    }
+    
+    .menu {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .menu li {
+        margin-bottom: 0;
+    }
+    
+    .menu li a {
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 8px 12px;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.85);
+        background: none !important;
+        box-shadow: none !important;
+    }
+    
+    .menu li.active a {
+        color: #0ed2da;
+    }
+    
+    .menu li.active a i {
+        color: #0ed2da;
+    }
+    
+    .sidebar-bottom {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+        margin-top: 0;
+    }
+    
+    .profile-card {
+        display: none;
+    }
+    
+    .logout-btn {
+        background: none;
+        box-shadow: none;
+        padding: 8px 12px;
+        font-size: 10px;
+        flex-direction: column;
+        gap: 2px;
+        color: rgba(255, 255, 255, 0.85);
+        border: none;
+        width: auto;
+    }
+    
+    .logout-btn:hover {
+        background: none;
+        color: #0ed2da;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 20px 15px 90px 15px;
+    }
+    
+    .top-bar {
+        margin-bottom: 25px;
+    }
+    
+    .top-bar h1 {
+        font-size: 26px;
+    }
+    
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .transaction-title {
+        font-size: 13px;
+    }
+    .transaction-amount {
+        font-size: 14px;
+    }
+    .transaction-date {
+        font-size: 11px;
+    }
+}
+

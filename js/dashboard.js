@@ -11,7 +11,9 @@ import {
     getDoc,
     collection,
     getDocs,
-    setDoc
+    setDoc,
+    addDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 
@@ -194,6 +196,43 @@ if (saveBudgetBtn) {
             saveBudgetBtn.disabled = true;
             saveBudgetBtn.textContent = "Saving...";
 
+            const oldBudget = currentProfile.monthlyBudget || 0;
+            const diff = newBudget - oldBudget;
+
+            if (diff !== 0) {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                const dateStr = `${year}-${month}-${day}`;
+
+                if (diff > 0) {
+                    await addDoc(
+                        collection(db, "users", currentUid, "transactions"),
+                        {
+                            title: "Budget Increase",
+                            amount: diff,
+                            category: "Income",
+                            date: dateStr,
+                            notes: `Budget updated from ₹${oldBudget} to ₹${newBudget}`,
+                            createdAt: serverTimestamp()
+                        }
+                    );
+                } else {
+                    await addDoc(
+                        collection(db, "users", currentUid, "transactions"),
+                        {
+                            title: "Budget Decrease",
+                            amount: Math.abs(diff),
+                            category: "Other",
+                            date: dateStr,
+                            notes: `Budget updated from ₹${oldBudget} to ₹${newBudget}`,
+                            createdAt: serverTimestamp()
+                        }
+                    );
+                }
+            }
+
             const docRef = doc(db, "users", currentUid);
             await setDoc(docRef, { monthlyBudget: newBudget }, { merge: true });
 
@@ -297,13 +336,16 @@ async function loadTransactions(uid, monthlyBudget) {
         transactions.forEach((data) => {
             const amt = Number(data.amount) || 0;
             const isIncome = String(data.category).toLowerCase().includes("income") || String(data.category).toLowerCase().includes("salary");
+            const isBudgetAdjustment = String(data.title).toLowerCase().includes("budget increase") || String(data.title).toLowerCase().includes("budget decrease");
 
-            if (isIncome) {
-                totalIncome += amt;
-            } else {
-                totalExpense += amt;
-                const cat = data.category || "Other";
-                expensesByCategory[cat] = (expensesByCategory[cat] || 0) + amt;
+            if (!isBudgetAdjustment) {
+                if (isIncome) {
+                    totalIncome += amt;
+                } else {
+                    totalExpense += amt;
+                    const cat = data.category || "Other";
+                    expensesByCategory[cat] = (expensesByCategory[cat] || 0) + amt;
+                }
             }
         });
 

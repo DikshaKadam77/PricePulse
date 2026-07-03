@@ -135,11 +135,14 @@ expenseForm.addEventListener("submit", async(e) => {
             const data = doc.data();
             const amt = Number(data.amount) || 0;
             const isIncome = String(data.category).toLowerCase().includes("income") || String(data.category).toLowerCase().includes("salary");
+            const isBudgetAdjustment = String(data.title).toLowerCase().includes("budget increase") || String(data.title).toLowerCase().includes("budget decrease");
 
-            if (isIncome) {
-                totalIncome += amt;
-            } else {
-                totalExpense += amt;
+            if (!isBudgetAdjustment) {
+                if (isIncome) {
+                    totalIncome += amt;
+                } else {
+                    totalExpense += amt;
+                }
             }
         });
 
