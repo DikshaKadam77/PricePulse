@@ -48,7 +48,7 @@ PricePulse/
 ## Installation
 
 ```bash
-git clone https://github.com/YDikshaKadam77/PricePulse.git
+git clone https://github.com/DikshaKadam77/PricePulse.git
 ```
 
 Open `index.html` using Live Server.
