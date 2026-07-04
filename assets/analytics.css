@@ -9,7 +9,15 @@
     flex-wrap: wrap;
     gap: 20px;
 }
-
+.analytics-header h1 {
+    font-size: 32px;
+    color: #12B1D1;
+    font-weight: 700;
+}
+.analytics-header p {
+    color: #8A8FA3;
+    margin-top: 4px;
+}
 .selector-container {
     display: flex;
     gap: 15px;
